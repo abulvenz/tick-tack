@@ -64,6 +64,8 @@ const simpleClock = (vnode) => ({
         timeZone: state.tz,
       })
     );
+    //    time.setSeconds(time_local.getSeconds());
+    time.setMilliseconds(time_local.getMilliseconds());
     const hor =
       time.getHours() + time.getMinutes() / 60 + time.getSeconds() / 3600;
     const min =
@@ -128,32 +130,42 @@ const moveSecond = (increment) => {
 const hour_keydown = (e) => {
   if (e.key === "ArrowUp") {
     moveHour(1);
-  }
-  if (e.key === "ArrowDown") {
+    e.preventDefault();
+  } else if (e.key === "ArrowDown") {
     moveHour(-1);
+    e.preventDefault();
+  } else if (e.key === "Delete" || e.key === "Backspace") {
+    state.hour = null;
+    e.preventDefault();
   }
   m.redraw();
-  e.preventDefault();
 };
 const minute_keydown = (e) => {
   if (e.key === "ArrowUp") {
     moveMinute(1);
-  }
-  if (e.key === "ArrowDown") {
+    e.preventDefault();
+  } else if (e.key === "ArrowDown") {
     moveMinute(-1);
+    e.preventDefault();
+  } else if (e.key === "Delete" || e.key === "Backspace") {
+    state.minute = null;
+    e.preventDefault();
   }
   m.redraw();
-  e.preventDefault();
+  //  e.preventDefault();
 };
 const second_keydown = (e) => {
   if (e.key === "ArrowUp") {
     moveSecond(1);
-  }
-  if (e.key === "ArrowDown") {
+    e.preventDefault();
+  } else if (e.key === "ArrowDown") {
     moveSecond(-1);
+    e.preventDefault();
+  } else if (e.key === "Delete" || e.key === "Backspace") {
+    state.second = null;
+    e.preventDefault();
   }
   m.redraw();
-  e.preventDefault();
 };
 
 const clockComponent = (vnode) => ({
