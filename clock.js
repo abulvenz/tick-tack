@@ -23,7 +23,7 @@ export default (vnode) => {
             title("Swiss Railway Clock"),
             style(
               { type: "text/css" },
-              " .bg {stroke: none; fill: white;} .fc {stroke: none; fill: black;} .h3 {stroke: none; fill: black;} .h2 {stroke: none; fill: #0000aa;} .h1 {stroke: none; fill: #aa0000;} "
+              " .bg {stroke: none; fill: #aaa;} .fc {stroke: none; fill: black;} .h3 {stroke: none; fill: black;} .h2 {stroke: none; fill: #0000aa;} .h1 {stroke: none; fill: #aa0000;} "
             ),
             defs([
               path({ id: "mark1", d: "M -20,-1000 l 40,0 0,100 -40,0 z" }),
